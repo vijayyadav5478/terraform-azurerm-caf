@@ -1,4 +1,4 @@
-ss
+
 terraform {
   required_providers {
     azurerm = {
