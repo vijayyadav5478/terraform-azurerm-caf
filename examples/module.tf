@@ -10,6 +10,8 @@ module "caf" {
   resource_groups              = var.resource_groups
   storage_accounts             = var.storage_accounts
   azuread_groups               = var.azuread_groups
+  azuread_apps                 = var.azuread_apps
+  azuread_users                = var.azuread_users
   azuread_roles                = var.azuread_roles
   tags                         = local.tags
   keyvaults                    = var.keyvaults
@@ -17,6 +19,7 @@ module "caf" {
   keyvault_certificate_issuers = var.keyvault_certificate_issuers
   managed_identities           = var.managed_identities
   role_mapping                 = var.role_mapping
+  custom_role_definitions      = var.custom_role_definitions
   log_analytics                = var.log_analytics
   event_hub_namespaces         = var.event_hub_namespaces
 
@@ -57,6 +60,11 @@ module "caf" {
     dns_zones                            = var.dns_zones
     private_endpoints                    = var.private_endpoints
     local_network_gateways               = var.local_network_gateways
+    azurerm_firewalls                    = var.azurerm_firewalls
+    azurerm_firewall_network_rule_collection_definition      = var.azurerm_firewall_network_rule_collection_definition
+    azurerm_firewall_application_rule_collection_definition  = var.azurerm_firewall_application_rule_collection_definition
+    azurerm_firewall_nat_rule_collection_definition          = var.azurerm_firewall_nat_rule_collection_definition
+
   }
   database = {
     azurerm_redis_caches              = var.azurerm_redis_caches
@@ -81,6 +89,7 @@ module "caf" {
   shared_services = {
     monitoring      = var.monitoring
     recovery_vaults = var.recovery_vaults
+    automations     = var.automations
   }
 
   security = {
